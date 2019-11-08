@@ -18,6 +18,8 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Postgres as the database for Active Record
 gem 'pg'
 
+
+gem 'jwt', '~> 2.2', '>= 2.2.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

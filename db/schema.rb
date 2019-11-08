@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_040438) do
   end
 
   create_table "genres", force: :cascade do |t|
+    t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
