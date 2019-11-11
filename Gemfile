@@ -18,6 +18,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Postgres as the database for Active Record
 gem 'pg'
 
+gem 'foreman', '~> 0.86.0'
 
 gem 'jwt', '~> 2.2', '>= 2.2.1'
 # Use Active Storage variant
