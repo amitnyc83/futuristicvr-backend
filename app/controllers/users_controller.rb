@@ -40,6 +40,17 @@ class UsersController < ApplicationController
   end
 
 
+  def profile
+    user = User.find_by_auth_token!(request.headers[:token])
+    if user.type === "Customer"
+      render json: {username: user.username, name: user.name, type: user.type}
+    else
+      render json: {username: username: user.username, name: user.name, type: user.type}
+    end
+  end
+
+
+
   private
 
   def set_user
