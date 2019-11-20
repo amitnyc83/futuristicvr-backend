@@ -1,4 +1,4 @@
 class Admin < User
   has_many :games
-  has_mnay :reservations
+  has_many :reservations
 end

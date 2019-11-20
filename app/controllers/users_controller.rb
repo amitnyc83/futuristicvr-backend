@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+
 
   #GET /users
   def index
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.save
+    if @user.valid?
       token = JWT.encode({user_id: @user.id}, 'SECRET')
       render json: {user_id: @user.id, username: @user.username, type: @user.type, name: @user.name, jwt: token}
     else
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     if user.type === "Customer"
       render json: {username: user.username, name: user.name, type: user.type}
     else
-      render json: {username: username: user.username, name: user.name, type: user.type}
+      render json: {username: user.username, name: user.name, type: user.type}
     end
   end
 
