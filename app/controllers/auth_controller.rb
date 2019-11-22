@@ -2,10 +2,10 @@ class AuthController < ApplicationController
 
 
   def create
-    user = User.find_by(username: auth_params[:username])
+    user = User.find_by(email: auth_params[:email])
     if user && user.authenticate(auth_params[:password])
       token = JWT.encode({user_id: user.id}, 'SECRET')
-      render json: {username: user.username, user_id; user_id, jwt: token, type: user.type, user: user.img,  user: username}
+      render json: {username: user.username, user_id: user.id, jwt: token, type: user.type, email: user.email,  user: user.name}
     else
       render json: {message: "Password not found"}, status: 400
     end
@@ -29,8 +29,8 @@ class AuthController < ApplicationController
   private
 
   def auth_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:email, :username, :password, :type)
   end
 
-  
+
 end
