@@ -4,7 +4,8 @@ class Games < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.string :image
-      t.string :genre
+      t.integer :genre_id
+      t.integer :admin_id
     end
   end
 end

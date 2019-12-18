@@ -27,6 +27,8 @@ gem 'jwt', '~> 2.2', '>= 2.2.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'activerecord', '~> 6.0', '>= 6.0.1'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 

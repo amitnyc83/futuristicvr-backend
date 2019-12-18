@@ -1,28 +1,24 @@
 class GamesController < ApplicationController
-  before_action :set_game, only: [:show, :update, :destroy]
 
   def index
-    @games = Game.all
-    render json: @games
+    games = Game.all
+    render json: games
+  end
+
+  def create
+    game = Game.create(game_params)
+    render json: {name: game.name, description: game.description, image: game.image, genre: game.genre, admin_id: game.admin_id}
   end
 
   def show
-    render json: @game
-  end
-
-
-  def create
-    @game = Game.new(game_params)
-    if @game.save 
-      render json: @game
-    else
-      render json: {message: "There was an error creating a new game"}
-    end
+    game = Game.find(params[:id])
+    render json: {game: game}
   end
 
   def update
-    if @game.update(game_params)
-      render json: @game
+    game = Game.find(params[:id])
+    if game.update(game_params)
+     render json: {game: game, message: "Game info has been successfully updated"}
     else
       render json: {message: "There was an error updating the game"}
     end
@@ -45,12 +41,8 @@ class GamesController < ApplicationController
   private
 
 
-  def set_game
-    @game = Game.find(params[:id])
-  end
-
   def game_params
-    params.require(:game).permit(:id, :image, :description, :name, :likes, :reviews, :genre, :reservation)
+    params.require(:game).permit(:image, :description, :name, :genre, :admin_id)
   end
 
 end
