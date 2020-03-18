@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 
 
   # #GET /users
-  # def index
-  #   @users = User.all
-  #   render json: @users
-  # end
+  def index
+    @users = User.all
+    render json: @users
+  end
   #
   #
   # # GET /users/1
@@ -17,8 +17,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    if @user.valid?
+    if @user.save
       token = JWT.encode({user_id: @user.id}, 'SECRET')
+      response = { message: 'User has been successfully created' }
       render json: {user_id: @user.id, username: @user.username, type: @user.type, name: @user.name, jwt: token}
     else
       render json: {error: "does not work"}, status: 422
