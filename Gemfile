@@ -18,11 +18,21 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Postgres as the database for Active Record
 gem 'pg'
 
+gem 'dotenv'
+
+gem 'json'
+
+gem 'sinatra'
+
+gem 'stripe'
+
 gem 'foreman', '~> 0.86.0'
 
 gem 'jwt', '~> 2.2', '>= 2.2.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+
+gem 'simple_command'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -30,7 +40,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'activerecord', '~> 6.0', '>= 6.0.1'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
