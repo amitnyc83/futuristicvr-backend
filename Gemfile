@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.0'
+gem 'rails', '~> 6.1.3'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -37,7 +37,7 @@ gem 'simple_command'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
-gem 'activerecord', '~> 6.0', '>= 6.0.1'
+gem 'activerecord', '~> 6.1'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', :require => 'rack/cors'
